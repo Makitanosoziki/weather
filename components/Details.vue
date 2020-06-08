@@ -1,11 +1,10 @@
 <template>
     <section>
         <ul class="details">
-            <li class="info-date">{{ INFO_DATE }}</li>
-            <li class="info-week"> {{ INFO_WEEK }}</li>
+            <li class="info-date">{{ INFO_MONTH }}    <span class="info-date-slash">/</span>   {{INFO_DAY}}    <span class="info-date-week">{{ INFO_WEEK }}</span></li>
             <li class="info-weather"><img :src="WEATHER" alt="" class="info-weather-img"></li>
-            <li class="info-temperature">{{ TEMPERATURE }}</li>
-            <li></li>
+            <li class="info-tempMax">{{ TEMP_MAX }}<span class="info-tempMax-unit">℃</span></li>
+            <li class="info-tempMin">{{ TEMP_MIN }}<span class="info-tempMin-unit">℃</span></li>
             <li class="info-windSpeed">{{ WIND_SPEED }}</li>
             <li></li>
             <li class="info-humidity">{{ HUMIDITY }}</li>
@@ -20,7 +19,8 @@ import moment from 'moment'
 
 export default {
     computed: {
-        INFO_DATE: () => moment().format('M/D'),
+        INFO_MONTH: () => moment().format('M'),
+        INFO_DAY: () => moment().format('D'),
         INFO_WEEK: () => moment().format('ddd'),
         WEATHER(){
             let main = this.weatherItem && this.weatherItem.weather[0].main
@@ -32,11 +32,13 @@ export default {
                 return require('@/assets/cloud.png')
             }
         },
-        TEMPERATURE(){
+        TEMP_MAX(){
             const tempMax = Math.floor(this.weatherItem && this.weatherItem.main.temp_max)
+            return tempMax
+        },
+        TEMP_MIN(){
             const tempMin = Math.floor(this.weatherItem && this.weatherItem.main.temp_min)
-            console.log(this.weatherItem)
-            return `${ tempMax }°C / ${ tempMin }°C`
+            return tempMin
         },
         WIND_SPEED(){
             const WindSpeed = this.weatherItem && this.weatherItem.wind.speed
@@ -76,30 +78,39 @@ export default {
 
     .info-date {
         position: absolute;
-        top: 2%;
-        right: 50%;
-        margin-right: -3.5vw;
-        font-size: 7vw;
-        font-family: 'Bentham', serif;
+        top: 8%;
+        left: 10%;
+        font-size: 5vw;
+        font-family: 'Montserrat', sans-serif;
         color: #3e1b28;
     }
 
-    .info-week {
-        position: absolute;
-        top: calc(100%*220/1800);
-        right: 37%;
-        font-size: 3.2vw;
-        font-family: 'Bentham', serif;
+    .info-date-slash {
+        font-size: 3vw;
+    }
+
+    .info-date-week {
+        font-size: 3vw;
+        font-family: 'Montserrat', sans-serif;
         color: #3e1b28;
     }
 
-    .info-temperature {
+    .info-tempMax {
         position: absolute;
-        bottom: 6%;
-        left: 12%;
-        font-family: 'Bentham', serif;
-        color: #3e1b28;
-        font-size: 4vw;
+        right: 10%;
+        top: 20%;
+        font-family: 'Montserrat', sans-serif;
+        color: #e41964;
+        font-size: 9vw;
+    }
+
+    .info-tempMin {
+        position: absolute;
+        right: 10%;
+        top: 42%;
+        font-family: 'Montserrat', sans-serif;
+        color: #3d50a6;
+        font-size: 9vw;
     }
 
     .info-weather-img {
@@ -113,16 +124,16 @@ export default {
         position: absolute;
         top: 50%;
         right: 10%;
-        font-family: 'Bentham', serif;
+        font-family: 'Montserrat', sans-serif;
         color: #3e1b28;
         font-size: 4.3vw;
             &::before {
-                font-size: 3.9vw;
+                font-size: 3vw;
                 position: absolute;
                 left: -83%;
-                bottom: 8%;
+                bottom: 0;
+                font-family: 'M PLUS 1p', sans-serif;
                 content:'風速';
-                font-family: 'Noto Serif JP', serif;
             }
     }
 
@@ -130,16 +141,16 @@ export default {
         position: absolute;
         bottom: 5%;
         right: 10%;
-        font-family: 'Bentham', serif;
+        font-family: 'Montserrat', sans-serif;
         color: #3e1b28;
         font-size: 4.3vw;
             &::before {
-                font-size: 3.9vw;
+                font-size: 3vw;
                 position: absolute;
                 left: -100%;
-                bottom: 8%;
+                bottom: 3%;
                 content:'湿度';
-                font-family: 'Noto Serif JP', serif;
+                font-family: 'M PLUS 1p', sans-serif;
             }
     }
 
