@@ -35,17 +35,11 @@ module.exports = {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
   ],
-  /*
+    /*
   ** Nuxt.js modules
   */
-  modules: [['nuxt-webfontloader']],
-  webfontloader: {
-    google: {
-      families: ['Bentham+Noto+Serif+JP:wght@900']
-    }
-  },
-  [
-    // Doc: https://axios.nuxtjs.org/usage
+  modules: [
+    'nuxt-webfontloader',
     '@nuxtjs/axios'
   ],
   /*
