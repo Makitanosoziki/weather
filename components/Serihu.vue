@@ -10,13 +10,25 @@ import { mapActions, mapState } from 'vuex'
 export default {
     computed: {
         SERIHU() {
-            let main = this.weatherItem && this.weatherItem.weather[0].main
-            if(main === 'Clear') {
-                return '晴れだね'
-            } else if(main === 'Rain') {
-                return '雨だね'
+            let temp = Math.floor(this.weatherItem && this.weatherItem.main.temp)
+            if(temp > 35) {
+                return 'かき氷食べいこうね'
+            } else if(temp  > 30) {
+                return 'ガリガリ君梨味しか'
+            } else　if(temp  > 25) {
+                return 'そろそろチョコミントだね'
+            } else if(temp > 20) {
+                return '31ならジャモカコーヒー推し'
+            } else if(temp > 15) {
+                return 'MOWたべよ〜'
+            }　else if(temp > 10) {
+                return 'ちょこもなかじゃ〜んぼ'
+            } else if(temp > 5) {
+                return 'やわもちのミルクアイスがすき'
+            } else if(temp > 0) {
+                return 'いい加減ハーゲンダッツじゃん'
             } else {
-                return 'その他だね'
+                return 'お外でアイスつくろう！'
             }
         },
         ...mapState({
@@ -38,21 +50,13 @@ export default {
 <style>
     .serihu {
         position: absolute;
-        top: 10%;
-        left: 8%;
-        width: 92%;
-        height: 90%;
-        &::before {
-            content: "";
-            background:url(../assets/hukidashi.png) no-repeat;
-            display: inline-block;
-            top: -6%;
-            left: -5%;
-            width: 20%;
-            height: calc(100%*250/898);
-            position: absolute;
-            background-size:contain;
-        }
+        text-align: justify;
+        color: #3e1b28;
+        font-family: 'M PLUS 1p', sans-serif;
+        top: 15.5%;
+        left: 7%;
+        width: 11%;
+        font-size: 2vw;
     }
 
 </style>
