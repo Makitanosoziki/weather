@@ -50,6 +50,7 @@ export default {
 </script>
 
 <style>
+
 .info-main-img {
     position: absolute;
     width: 33%;
