@@ -6,6 +6,7 @@
     <Window />
     <Serihu />
     <Details />
+    <InfoWeather />
   </div>
 </template>
 
@@ -16,6 +17,7 @@ import Girl from '~/components/Girl.vue'
 import Window from '~/components/Window.vue'
 import Serihu from '~/components/Serihu.vue'
 import Details from '~/components/Details.vue'
+import InfoWeather from '~/components/InfoWeather.vue'
 
 export default {
   components: {
@@ -23,7 +25,8 @@ export default {
     Girl,
     Window,
     Serihu,
-    Details
+    Details,
+    InfoWeather
   },
   computed: {
     ...mapState({
