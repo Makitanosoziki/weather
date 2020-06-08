@@ -3,8 +3,8 @@
     <div v-if="weatherItem"></div>
     <Date />
     <Girl />
-    <Window />
     <Serihu />
+    <Window />
     <Details />
     <InfoWeather />
   </div>
