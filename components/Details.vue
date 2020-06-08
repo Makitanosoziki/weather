@@ -2,12 +2,11 @@
     <section>
         <ul class="details">
             <li class="info-date">{{ INFO_MONTH }}    <span class="info-date-slash">/</span>   {{INFO_DAY}}    <span class="info-date-week">{{ INFO_WEEK }}</span></li>
-            <li class="info-weather"><img :src="WEATHER" alt="" class="info-weather-img"></li>
             <li class="info-tempMax">{{ TEMP_MAX }}<span class="info-tempMax-unit">℃</span></li>
             <li class="info-tempMin">{{ TEMP_MIN }}<span class="info-tempMin-unit">℃</span></li>
-            <li class="info-windSpeed">{{ WIND_SPEED }}</li>
-            <li></li>
-            <li class="info-humidity">{{ HUMIDITY }}</li>
+            <li class="info-rain"><fa class="info-subs-icon" :icon="faUmbrella" /> <span class="info-subs-title">降水確率</span> {{ HUMIDITY }} <span class="info-subs-unit">%</span></li>
+            <li class="info-windSpeed"><fa class="info-subs-icon" :icon="faWind" /> <span class="info-subs-title">風速</span> {{ WIND_SPEED }} <span class="info-subs-unit">m/s</span></li>
+            <li class="info-humidity"><fa class="info-subs-icon" :icon="faTint" /> <span class="info-subs-title">湿度</span> {{ HUMIDITY }} <span class="info-subs-unit">%</span></li>
         </ul>
     </section>
 </template>
@@ -16,22 +15,15 @@
 
 import { mapActions, mapState } from 'vuex'
 import moment from 'moment'
+import { faUmbrella } from '@fortawesome/free-solid-svg-icons'
+import { faTint } from '@fortawesome/free-solid-svg-icons'
+import { faWind } from '@fortawesome/free-solid-svg-icons'
 
 export default {
     computed: {
         INFO_MONTH: () => moment().format('M'),
         INFO_DAY: () => moment().format('D'),
         INFO_WEEK: () => moment().format('ddd'),
-        WEATHER(){
-            let main = this.weatherItem && this.weatherItem.weather[0].main
-            if(main === 'Clear') {
-                return require('@/assets/sunny.png')
-            } else if(main === 'Rain') {
-                return require('@/assets/rain.png')
-            } else if(main === 'Clouds') {
-                return require('@/assets/cloud.png')
-            }
-        },
         TEMP_MAX(){
             const tempMax = Math.floor(this.weatherItem && this.weatherItem.main.temp_max)
             return tempMax
@@ -42,13 +34,15 @@ export default {
         },
         WIND_SPEED(){
             const WindSpeed = this.weatherItem && this.weatherItem.wind.speed
-            return `${WindSpeed}m`
+            return WindSpeed
         },
         HUMIDITY(){
             const humidity = Math.floor(this.weatherItem && this.weatherItem.main.humidity)
-            return `${humidity}%`
-
+            return humidity
         },
+        faUmbrella: () => faUmbrella,
+        faTint: () => faTint,
+        faWind: () => faWind,
         ...mapState({
             weatherItem: state => state.api.weatherItem
         }),
@@ -120,38 +114,45 @@ export default {
         width: 45%;
     }
 
-    .info-windSpeed {
+    .info-rain {
         position: absolute;
-        top: 50%;
-        right: 10%;
+        bottom: 10%;
+        left: 10%;
         font-family: 'Montserrat', sans-serif;
         color: #3e1b28;
-        font-size: 4.3vw;
-            &::before {
-                font-size: 3vw;
-                position: absolute;
-                left: -83%;
-                bottom: 0;
-                font-family: 'M PLUS 1p', sans-serif;
-                content:'風速';
-            }
+        font-size: 3.2vw;
+    }
+
+    .info-windSpeed {
+        position: absolute;
+        bottom: 10%;
+        right: 35%;
+        font-family: 'Montserrat', sans-serif;
+        color: #3e1b28;
+        font-size: 3.2vw;
     }
 
     .info-humidity {
         position: absolute;
-        bottom: 5%;
+        bottom: 10%;
         right: 10%;
         font-family: 'Montserrat', sans-serif;
         color: #3e1b28;
-        font-size: 4.3vw;
-            &::before {
-                font-size: 3vw;
-                position: absolute;
-                left: -100%;
-                bottom: 3%;
-                content:'湿度';
-                font-family: 'M PLUS 1p', sans-serif;
-            }
+        font-size: 3.2vw;
     }
 
+    .info-subs-icon {
+        font-size: 2.5vw;
+    }
+
+    .info-subs-title {
+        color: #3e1b28;
+        font-size: 1.7vw;
+        font-family: 'M PLUS 1p', sans-serif;
+    }
+
+    .info-subs-unit {
+        color: #3e1b28;
+        font-size: 1.8vw;
+    }
 </style>
