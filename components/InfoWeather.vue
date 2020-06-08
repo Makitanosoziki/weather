@@ -1,6 +1,6 @@
 <template>
     <section>
-        <div class="info-main"><img :src="INFO_WEATHER" alt="" class="info-main-img"></div>
+        <div class="info-main"><img :src="INFO_MAINIMG" alt="" class="info-main-img"></div>
     </section>
 </template>
 
@@ -10,7 +10,7 @@ import { mapActions, mapState } from 'vuex'
 
 export default {
     computed: {
-        INFO_WEATHER() {
+        INFO_MAINIMG() {
             const mainArray = []
             for (let i=0; i<7; i++) {
                 const main = this.forecastItem && this.forecastItem.list[i].weather[0].main

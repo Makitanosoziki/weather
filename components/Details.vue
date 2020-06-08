@@ -92,7 +92,7 @@ export default {
     .info-tempMax {
         position: absolute;
         right: 10%;
-        top: 20%;
+        top: 25%;
         font-family: 'Montserrat', sans-serif;
         color: #e41964;
         font-size: 9vw;
@@ -101,7 +101,7 @@ export default {
     .info-tempMin {
         position: absolute;
         right: 10%;
-        top: 42%;
+        bottom: 25%;
         font-family: 'Montserrat', sans-serif;
         color: #3d50a6;
         font-size: 9vw;
@@ -126,7 +126,7 @@ export default {
     .info-windSpeed {
         position: absolute;
         bottom: 10%;
-        right: 35%;
+        right: 37%;
         font-family: 'Montserrat', sans-serif;
         color: #3e1b28;
         font-size: 3.2vw;
