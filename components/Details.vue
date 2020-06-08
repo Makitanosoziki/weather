@@ -60,14 +60,14 @@ export default {
 
 <style>
     .details {
+        -webkit-border-image: url("../assets/border_img.png") 33% / 5vw round;
         list-style: none;
         position: absolute;
-        right: 15%;
-        top: 10%;
+        right: 10%;
+        top: 5%;
         display: block;
-        background-color: white;
-        width: 70%;
-        height: 80%;
+        width: 80%;
+        height: 90%;
     }
 
     .info-date {
