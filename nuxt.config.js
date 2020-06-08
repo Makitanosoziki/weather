@@ -42,6 +42,11 @@ module.exports = {
     'nuxt-webfontloader',
     '@nuxtjs/axios'
   ],
+  webfontloader: {
+    google: {
+      families:['Montserrat:wght@100','M+PLUS+1p:wght@100']
+    }
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
