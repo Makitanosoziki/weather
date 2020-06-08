@@ -64,10 +64,10 @@ export default {
         list-style: none;
         position: absolute;
         right: 10%;
-        top: 5%;
+        top: 10%;
         display: block;
         width: 80%;
-        height: 90%;
+        height: 80%;
     }
 
     .info-date {
