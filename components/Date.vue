@@ -1,6 +1,6 @@
 <template>
     <section>
-        <p class="date">{{ DATE }}</p>
+        <p class="date">{{ MONTH }}<span class="date-slash">/</span>{{ DAY }}</p>
         <p class="week">{{ WEEK }}</p>
     </section>
 </template>
@@ -12,7 +12,8 @@ import moment from 'moment'
 
 export default {
     computed: {
-        DATE: () => moment().format('M/D'),
+        MONTH: () => moment().format('M'),
+        DAY: () => moment().format('D'),
         WEEK: () => moment().format('ddd'),
         ...mapState({
             weatherItem: state => state.api.weatherItem
@@ -33,19 +34,23 @@ export default {
 <style>
     .date {
         position: absolute;
-        top: calc(100%*60/1800);
-        right: 10%;
-        font-size: 7vw;
-        font-family: 'Bentham', serif;
+        top: 5%;
+        right: 13%;
+        font-size: 6.5vw;
+        font-family: 'Montserrat', sans-serif;
         color: #3e1b28;
     }
 
     .week {
         position: absolute;
-        top: calc(100%*240/1800);
-        right: 4.5%;
-        font-size: 3.5vw;
-        font-family: 'Bentham', serif;
+        top: 10.5%;
+        right: 6%;
+        font-size: 3.3vw;
+        font-family: 'Montserrat', sans-serif;
         color: #3e1b28;
+    }
+
+    .date-slash {
+        font-size: 6vw;
     }
 </style>
