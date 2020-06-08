@@ -39,9 +39,16 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
+    'nuxt-fontawesome',
     'nuxt-webfontloader',
     '@nuxtjs/axios'
   ],
+  /*
+  ** FontAwesome
+  */
+  fontawesome: {
+    component: 'fa'
+  },
   webfontloader: {
     google: {
       families:['Montserrat:wght@100','M+PLUS+1p:wght@100']
