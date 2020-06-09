@@ -38,7 +38,7 @@ export default {
 <style scoped>
     .sky-img {
         position: absolute;
-        z-index: -1;
+        z-index: -3;
         top: calc(100%*195/1800);
         right: calc(100%*570/1800);
         width: calc(100%*280/1800);

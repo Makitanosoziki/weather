@@ -10,7 +10,7 @@ import { mapActions, mapState } from 'vuex'
 export default {
     computed: {
         SERIHU() {
-            let temp = Math.floor(this.weatherItem && this.weatherItem.main.temp)
+            const temp = Math.floor(this.weatherItem && this.weatherItem.main.temp)
             if(temp > 35) {
                 return 'かき氷食べいこうね'
             } else if(temp  > 30) {
