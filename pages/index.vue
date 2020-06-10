@@ -5,6 +5,7 @@
     <Girl />
     <Serihu />
     <Window />
+    <balloon />
     <Details />
     <InfoWeather />
   </div>
@@ -15,6 +16,7 @@ import { mapActions, mapState } from 'vuex'
 import Date from '~/components/Date.vue'
 import Girl from '~/components/Girl.vue'
 import Window from '~/components/Window.vue'
+import balloon from '~/components/balloon.vue'
 import Serihu from '~/components/Serihu.vue'
 import Details from '~/components/Details.vue'
 import InfoWeather from '~/components/InfoWeather.vue'
@@ -24,6 +26,7 @@ export default {
     Date,
     Girl,
     Window,
+    balloon,
     Serihu,
     Details,
     InfoWeather
