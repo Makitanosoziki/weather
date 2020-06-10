@@ -44,7 +44,7 @@ export default {
     .week {
         position: absolute;
         top: 10.5%;
-        right: 6%;
+        right: 5%;
         font-size: 3.3vw;
         font-family: 'Montserrat', sans-serif;
         color: #3e1b28;
