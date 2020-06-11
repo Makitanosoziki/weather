@@ -1,6 +1,6 @@
 <template>
     <section class="balloon">
-        <figure class="balloon3"><span class="balloon_move3"><img src="@/assets/baloon_heare.png" alt="" class="balloon-img3"></span></figure>
+        <figure :class="BALLOON.figure"><span :class="BALLOON.span"><img src="@/assets/baloon_heare.png" alt="" :class="BALLOON.img"></span></figure>
     </section>
 </template>
 
@@ -10,8 +10,31 @@ import { mapActions, mapState } from 'vuex'
 
 export default {
     computed: {
-        BALOON() {
-            
+        BALLOON() {
+            const WindSpeed = this.weatherItem && this.weatherItem.wind.speed
+            const classList = {figure:'',span:'',img:''}
+            if(WindSpeed === 0 ) {
+                classList.img = 'balloon-img0'
+            } if (0 > WindSpeed >= 3.4) {
+                classList.img = 'balloon-img1'
+            } if(3.4 > WindSpeed >= 5.5) {
+                classList.figure = 'balloon2'
+                classList.span = 'balloon-move2'
+                classList.img = 'balloon-img2'
+            } if(5.5 > WindSpeed >= 8.0) {
+                classList.figure = 'balloon3'
+                classList.span = 'balloon-move3'
+                classList.img = 'balloon-img3'
+            } if(8.0 > WindSpeed >= 10.8) {
+                classList.figure = 'balloon4'
+                classList.span = 'balloon-move4'
+                classList.img = 'balloon-img4'
+            } else {
+                classList.figure = 'balloon5'
+                classList.span = 'balloon-move5'
+                classList.img = 'balloon-img5'
+            }
+            return classList
         },
         ...mapState({
             weatherItem: state => state.api.weatherItem
@@ -66,7 +89,7 @@ export default {
         animation: translateX3 4.0s infinite;
     }
 
-    .balloon_move2 {
+    .balloon-move2 {
         width: 100%;
         display: block;
         animation: translateY3 5.0s infinite;
@@ -88,7 +111,7 @@ export default {
         animation: translateX3 3.8s infinite;
     }
 
-    .balloon_move3 {
+    .balloon-move3 {
         width: 100%;
         display: block;
         animation: translateY3 5.0s infinite;
@@ -110,7 +133,7 @@ export default {
         animation: translateX4 1.3s infinite;
     }
 
-    .balloon_move4 {
+    .balloon-move4 {
         width: 100%;
         display: block;
         animation: translateY4 2.2s infinite;
@@ -132,7 +155,7 @@ export default {
         animation: translateX5 1.0s infinite;
     }
 
-    .balloon_move5 {
+    .balloon-move5 {
         width: 100%;
         display: block;
         animation: translateY5 1.6s infinite;
@@ -154,7 +177,7 @@ export default {
         animation: translateX6 1.4s infinite;
     }
 
-    .balloon_move6 {
+    .balloon-move6 {
         width: 100%;
         display: block;
         animation: translateY6 0.4s infinite;
