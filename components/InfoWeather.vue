@@ -29,11 +29,9 @@ export default {
                     return require('@/assets/thunder.png')
                 } else if(main === 'Snow') {
                     return require('@/assets/snow.png')
-                } else {
-                    return require('@/assets/yume.png')
                 }
             } else {
-                return require('@/assets/yume.png')
+                return require('@/assets/sunny.png')
             }
         },
         INFO_MAINDISCRIPTION() {
@@ -78,7 +76,7 @@ export default {
 <style>
 
 .info-main-img {
-    opacity: 0;
+    display: none;
     position: absolute;
     width: 33%;
     left: 20%;
@@ -86,7 +84,6 @@ export default {
 }
 
 .info-mainDiscription {
-    opacity: 0;
     position: absolute;
     right: 18%;
     top: 18.5%;
