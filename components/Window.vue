@@ -23,7 +23,7 @@ export default {
             } else if(main === 'Snow') {
                 return require('@/assets/sora_snow.png')
             } else {
-                return require('@/assets/sora_snow.png')
+                return require('@/assets/sora_yume.png')
             }
         },
         ...mapState({
