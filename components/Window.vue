@@ -16,8 +16,14 @@ export default {
                 return require('@/assets/sora_hare.png')
             } else if(main === 'Rain') {
                 return require('@/assets/sora_ame.png')
-            } else {
+            } else if(main === 'Clouds') {
                 return require('@/assets/sora_kumori.png')
+            } else if(main === 'Thunderstorm') {
+                return require('@/assets/sora_thunder.png')
+            } else if(main === 'Snow') {
+                return require('@/assets/sora_snow.png')
+            } else {
+                return require('@/assets/sora_snow.png')
             }
         },
         ...mapState({
