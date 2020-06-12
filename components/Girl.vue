@@ -35,7 +35,7 @@ export default {
                 return require('@/assets/wear4.png')
             } else {
                 return require('@/assets/wear5.png')
-            }　
+            }
         },
         ...mapState({
             weatherItem: state => state.api.weatherItem
