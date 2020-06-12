@@ -1,6 +1,7 @@
 <template>
-    <section>
-        <ul class="details">
+    <section class="details" v-if="isVisible">
+        <span class="batten" @click="close"></span>
+        <ul class="details-list">
             <li class="info-date">{{ INFO_MONTH }}    <span class="info-date-slash">/</span>   {{INFO_DAY}}    <span class="info-date-week">{{ INFO_WEEK }}</span></li>
             <li class="info-tempMax">{{ TEMP_MAX }}<span class="info-tempMax-unit">℃</span></li>
             <li class="info-tempMin">{{ TEMP_MIN }}<span class="info-tempMin-unit">℃</span></li>
@@ -8,6 +9,7 @@
             <li class="info-windSpeed"><fa class="info-subs-icon" :icon="faWind" /> <span class="info-subs-title">風速</span> {{ WIND_SPEED }} <span class="info-subs-unit">m/s</span></li>
             <li class="info-humidity"><fa class="info-subs-icon" :icon="faTint" /> <span class="info-subs-title">湿度</span> {{ HUMIDITY }} <span class="info-subs-unit">%</span></li>
         </ul>
+        <InfoWeather />
     </section>
 </template>
 
@@ -18,25 +20,35 @@ import moment from 'moment'
 import { faUmbrella } from '@fortawesome/free-solid-svg-icons'
 import { faTint } from '@fortawesome/free-solid-svg-icons'
 import { faWind } from '@fortawesome/free-solid-svg-icons'
+import InfoWeather from '~/components/InfoWeather.vue'
 
 export default {
+    props: {
+        isVisible: Boolean  
+    },
+    components: {
+        InfoWeather
+    },
     computed: {
+        DERTAILS() {
+            return false
+        },
         INFO_MONTH: () => moment().format('M'),
         INFO_DAY: () => moment().format('D'),
         INFO_WEEK: () => moment().format('ddd'),
-        TEMP_MAX(){
+        TEMP_MAX() {
             const tempMax = Math.floor(this.weatherItem && this.weatherItem.main.temp_max)
             return tempMax
         },
-        TEMP_MIN(){
+        TEMP_MIN() {
             const tempMin = Math.floor(this.weatherItem && this.weatherItem.main.temp_min)
             return tempMin
         },
-        WIND_SPEED(){
+        WIND_SPEED() {
             const WindSpeed = this.weatherItem && this.weatherItem.wind.speed
             return WindSpeed
         },
-        HUMIDITY(){
+        HUMIDITY() {
             const humidity = Math.floor(this.weatherItem && this.weatherItem.main.humidity)
             return humidity
         },
@@ -44,13 +56,17 @@ export default {
         faTint: () => faTint,
         faWind: () => faWind,
         ...mapState({
-            weatherItem: state => state.api.weatherItem
-        }),
+            weatherItem: state => state.api.weatherItem,
+            battenClick: state => state.battenClick
+        })
     },
     mounted() {
         this.getWeather()
     },
     methods: {
+        close() {
+            this.$emit('close')
+        },
         ...mapActions({
             getWeather: 'api/getWeather'
         })
@@ -60,6 +76,52 @@ export default {
 
 <style>
     .details {
+        &::before{
+            opacity: 0.5;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #562835;
+            display: block;
+        }
+    }
+
+    .batten {
+        cursor: pointer;
+        cursor: hand;
+        position: absolute;
+        display: block;
+        width: 10%;
+        height: 10%;
+        right: 0;
+        top: 3%;
+        /* ばってん */
+        &::before {
+            content: '';
+            display: block;
+            width: 5%;
+            height: 100%;
+            background-color: white;
+            transform: rotate(-45deg);
+            transform-origin: 50% 50%;
+            position: absolute;
+            right: 50%;
+        }
+        &::after {
+            content: '';
+            display: block;
+            right: 50%;
+            width: 5%;
+            height: 100%;
+            background-color: white;
+            transform: rotate(45deg);
+            transform-origin: 50% 50%;
+            position: absolute;
+        }
+    }
+
+    .details-list {
         -webkit-border-image: url("../assets/border_img.png") 33% / 5vw round;
         list-style: none;
         position: absolute;

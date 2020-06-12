@@ -1,13 +1,13 @@
 <template>
   <div class="container">
     <div v-if="weatherItem"></div>
+    <div class="detail-button" @click="isVisible = true">詳細→</div>
     <Date />
     <Girl />
     <Serihu />
     <Window />
     <balloon />
-    <Details />
-    <InfoWeather />
+    <Details :isVisible="isVisible" @close="isVisible = false" />
   </div>
 </template>
 
@@ -19,7 +19,6 @@ import Window from '~/components/Window.vue'
 import balloon from '~/components/balloon.vue'
 import Serihu from '~/components/Serihu.vue'
 import Details from '~/components/Details.vue'
-import InfoWeather from '~/components/InfoWeather.vue'
 
 export default {
   components: {
@@ -28,8 +27,12 @@ export default {
     Window,
     balloon,
     Serihu,
-    Details,
-    InfoWeather
+    Details
+  },
+  data() {
+    return {
+      isVisible: false
+    }
   },
   computed: {
     ...mapState({
@@ -48,6 +51,21 @@ export default {
 </script>
 
 <style>
+.detail-button {
+  border-radius: 1.0vw;
+  position: absolute;
+  top: 51%;
+  right: 8%;
+  padding:1.3% 2.5%;
+  font-size: 2.5vw;
+  color: #3e1b28;
+  background-color: #fae2ec;
+  border: 0.5vw solid #3e1b28;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  cursor: hand;
+}
 
 .container {
   background-image: url(/bg.png) ;

@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section class="info-weather" v-if="battenClick">
         <div class="info-main"><img :src="INFO_MAINIMG" alt="" class="info-main-img"></div>
         <div class="info-mainDiscription">{{ INFO_MAINDISCRIPTION }}</div>
     </section>
@@ -58,7 +58,8 @@ export default {
             }
         },
         ...mapState({
-            forecastItem: state => state.api.forecastItem
+            forecastItem: state => state.api.forecastItem,
+            battenClick: state => state.battenClick
         }),
     },
     mounted() {
@@ -76,7 +77,6 @@ export default {
 <style>
 
 .info-main-img {
-    display: none;
     position: absolute;
     width: 33%;
     left: 20%;
