@@ -15,24 +15,24 @@ export default {
             const classList = {figure:'',span:'',img:''}
             if(WindSpeed === 0 ) {
                 classList.img = 'balloon-img0'
-            } if (0 > WindSpeed >= 3.4) {
+            } if (WindSpeed < 3.5) {
                 classList.img = 'balloon-img1'
-            } if(3.4 > WindSpeed >= 5.5) {
+            } if(WindSpeed < 5.5) {
                 classList.figure = 'balloon2'
                 classList.span = 'balloon-move2'
                 classList.img = 'balloon-img2'
-            } if(5.5 > WindSpeed >= 8.0) {
+            } if(WindSpeed < 8.0) {
                 classList.figure = 'balloon3'
                 classList.span = 'balloon-move3'
                 classList.img = 'balloon-img3'
-            } if(8.0 > WindSpeed >= 10.8) {
+            } if(WindSpeed < 10.8) {
                 classList.figure = 'balloon4'
                 classList.span = 'balloon-move4'
                 classList.img = 'balloon-img4'
             } else {
-                classList.figure = 'balloon5'
-                classList.span = 'balloon-move5'
-                classList.img = 'balloon-img5'
+                classList.figure = 'balloon6'
+                classList.span = 'balloon-move6'
+                classList.img = 'balloon-img6'
             }
             return classList
         },
