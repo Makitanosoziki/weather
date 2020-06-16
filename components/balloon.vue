@@ -26,9 +26,9 @@ export default {
                 classList.span = 'balloon-move3'
                 classList.img = 'balloon-img3'
             } if(WindSpeed < 10.8) {
-                classList.figure = 'balloon5'
-                classList.span = 'balloon-move5'
-                classList.img = 'balloon-img5'
+                classList.figure = 'balloon4'
+                classList.span = 'balloon-move4'
+                classList.img = 'balloon-img4'
             } else {
                 classList.figure = 'balloon5'
                 classList.span = 'balloon-move5'
