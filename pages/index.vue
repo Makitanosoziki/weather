@@ -73,6 +73,16 @@ export default {
   background-size: contain;
   background-repeat: no-repeat; 
   position: relative;
+    &::before {
+      content: '';
+      background: url("../assets/bg_dots.png");
+      width: 100vw;
+      height: 100vh;
+      margin-left: calc( ( ( 100% - 100vw ) / 2 ) );
+      margin-right: calc( ( ( 100% - 100vw ) / 2 ) );
+      position: absolute;
+      z-index: -10;
+    }
 }
 
 </style>
