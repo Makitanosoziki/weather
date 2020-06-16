@@ -8,8 +8,9 @@
             <li class="info-rain"><fa class="info-subs-icon" :icon="faUmbrella" /> <span class="info-subs-title">降水確率</span> {{ HUMIDITY }} <span class="info-subs-unit">%</span></li>
             <li class="info-windSpeed"><fa class="info-subs-icon" :icon="faWind" /> <span class="info-subs-title">風速</span> {{ WIND_SPEED }} <span class="info-subs-unit">m/s</span></li>
             <li class="info-humidity"><fa class="info-subs-icon" :icon="faTint" /> <span class="info-subs-title">湿度</span> {{ HUMIDITY }} <span class="info-subs-unit">%</span></li>
+            <li class="info-main"><img :src="INFO_MAINIMG" alt="" class="info-main-img"></li>
+            <li class="info-mainDiscription">{{ INFO_MAINDISCRIPTION }}</li>
         </ul>
-        <InfoWeather />
     </section>
 </template>
 
@@ -20,14 +21,10 @@ import moment from 'moment'
 import { faUmbrella } from '@fortawesome/free-solid-svg-icons'
 import { faTint } from '@fortawesome/free-solid-svg-icons'
 import { faWind } from '@fortawesome/free-solid-svg-icons'
-import InfoWeather from '~/components/InfoWeather.vue'
 
 export default {
     props: {
         isVisible: Boolean  
-    },
-    components: {
-        InfoWeather
     },
     computed: {
         DERTAILS() {
@@ -52,6 +49,38 @@ export default {
             const humidity = Math.floor(this.weatherItem && this.weatherItem.main.humidity)
             return humidity
         },
+        INFO_MAINIMG() {
+            let main = this.weatherItem && this.weatherItem.weather[0].main
+            if(main === 'Clear') {
+                return require('@/assets/sunny.png')
+            } else if(main === 'Clouds') {
+                return require('@/assets/cloud.png')
+            } else if(main === 'Rain') {
+                return require('@/assets/rain.png')
+            } else if(main === 'Snow') {
+                return require('@/assets/snow.png')
+            } else if(main === 'Thunderstorm') {
+                return require('@/assets/thunder.png')
+            } else {
+                return require('@/assets/yume.png')
+            }
+        },
+        INFO_MAINDISCRIPTION() {
+            let main = this.weatherItem && this.weatherItem.weather[0].main
+            if(main === 'Clear') {
+                return 'はれ'
+            } else if(main === 'Clouds') {
+                return 'くもり'
+            } else if(main === 'Rain') {
+                return 'あめ'
+            } else if(main === 'Snow') {
+                return 'ゆき'
+            } else if(main === 'Thunderstorm') {
+                return 'かみなり'
+            } else {
+                return main
+            }
+        },
         faUmbrella: () => faUmbrella,
         faTint: () => faTint,
         faWind: () => faWind,
@@ -60,6 +89,7 @@ export default {
             battenClick: state => state.battenClick
         })
     },
+    
     mounted() {
         this.getWeather()
     },
@@ -201,6 +231,22 @@ export default {
         font-family: 'Montserrat', sans-serif;
         color: #3e1b28;
         font-size: 3.2vw;
+    }
+
+    .info-main-img {
+        position: absolute;
+        width: 33%;
+        left: 18%;
+        top: 26%;
+    }
+
+    .info-mainDiscription {
+        position: absolute;
+        right: 10%;
+        top: 10.5%;
+        color: #3e1b28;
+        font-size: 3vw;
+        font-family: 'M PLUS 1p', sans-serif;
     }
 
     .info-subs-icon {
