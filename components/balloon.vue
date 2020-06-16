@@ -26,13 +26,13 @@ export default {
                 classList.span = 'balloon-move3'
                 classList.img = 'balloon-img3'
             } if(WindSpeed < 10.8) {
-                classList.figure = 'balloon4'
-                classList.span = 'balloon-move4'
-                classList.img = 'balloon-img4'
+                classList.figure = 'balloon5'
+                classList.span = 'balloon-move5'
+                classList.img = 'balloon-img5'
             } else {
-                classList.figure = 'balloon6'
-                classList.span = 'balloon-move6'
-                classList.img = 'balloon-img6'
+                classList.figure = 'balloon5'
+                classList.span = 'balloon-move5'
+                classList.img = 'balloon-img5'
             }
             return classList
         },
@@ -158,29 +158,7 @@ export default {
     .balloon-move5 {
         width: 100%;
         display: block;
-        animation: translateY5 1.6s infinite;
-    }
-
-    /* 6 */
-    .balloon-img6 {
-        width: 100%;
-        transform-origin: 50% 100%; 
-        animation: rotate6 0.8s infinite;
-    }
-
-    .balloon6 {
-        width: 12%;
-        z-index: -1;
-        top: 20%;
-        right: 33.2%;
-        position: absolute;
-        animation: translateX6 1.4s infinite;
-    }
-
-    .balloon-move6 {
-        width: 100%;
-        display: block;
-        animation: translateY6 0.4s infinite;
+        animation: translateY5 1.0s infinite;
     }
 
     /* 1 */
@@ -344,72 +322,23 @@ export default {
 
     @keyframes translateX5 {
         0% {
-            transform:translateX(-90%);
-        }
-
-        50% {
-            transform:translateX(90%);
+            transform:translateX(-120%);
         }
 
         100% {
-            transform:translateX(-90%);
+            transform:translateX(120%);
         }
     }
 
     @keyframes translateY5 {
         0% {
-            transform:translateY(-80%);
-        }
-
-        50% {
-            transform:translateY(80%);
-        }
-
-        100% {
-            transform:translateY(-80%);
-        }
-    }
-
-    /* 6 */
-    @keyframes rotate6 {
-        0% {
-            transform:rotate(40deg)  scale(0.9);
-        }
-
-        50% {
-            transform:rotate(-40deg) scale(1.1);
-        }
-
-        100% {
-            transform:rotate(40deg) scale(0.9);
-        }
-    }
-
-    @keyframes translateX6 {
-        0% {
-            transform:translateX(-200%);
-        }
-
-        50% {
-            transform:translateX(200%);
-        }
-
-        100% {
-            transform:translateX(-200%);
-        }
-    }
-
-    @keyframes translateY6 {
-        0% {
-            transform:translateY(100%);
-        }
-
-        50% {
             transform:translateY(-100%);
         }
 
+
         100% {
             transform:translateY(100%);
         }
     }
+
 </style>
