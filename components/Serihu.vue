@@ -53,7 +53,7 @@ export default {
         text-align: justify;
         color: #3e1b28;
         font-family: 'M PLUS 1p', sans-serif;
-        top: 15.5%;
+        top: 18%;
         left: 7%;
         width: 11%;
         font-size: 2vw;
