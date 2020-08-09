@@ -3,8 +3,8 @@
         <span class="batten" @click="close"></span>
         <ul class="details-list">
             <li class="info-date">{{ INFO_MONTH }}    <span class="info-date-slash">/</span>   {{INFO_DAY}}    <span class="info-date-week">{{ INFO_WEEK }}</span></li>
-            <li class="info-tempMax">{{ TEMP_MAX }}<span class="info-tempMax-unit">℃</span></li>
-            <li class="info-tempMin">{{ TEMP_MIN }}<span class="info-tempMin-unit">℃</span></li>
+            <li class="info-tempMax">{{ TEMP_MAX }}<span class="info-temp-unit">℃</span></li>
+            <li class="info-tempMin">{{ TEMP_MIN }}<span class="info-temp-unit">℃</span></li>
             <li class="info-rain"><fa class="info-subs-icon" :icon="faUmbrella" /> <span class="info-subs-title">降水確率</span> {{ HUMIDITY }} <span class="info-subs-unit">%</span></li>
             <li class="info-windSpeed"><fa class="info-subs-icon" :icon="faWind" /> <span class="info-subs-title">風速</span> {{ WIND_SPEED }} <span class="info-subs-unit">m/s</span></li>
             <li class="info-humidity"><fa class="info-subs-icon" :icon="faTint" /> <span class="info-subs-title">湿度</span> {{ HUMIDITY }} <span class="info-subs-unit">%</span></li>
@@ -164,7 +164,7 @@ export default {
 
     .info-date {
         position: absolute;
-        top: 8%;
+        top: 12%;
         left: 10%;
         font-size: 5vw;
         font-family: 'Montserrat', sans-serif;
@@ -184,19 +184,23 @@ export default {
     .info-tempMax {
         position: absolute;
         right: 10%;
-        top: 25%;
+        top: 31%;
         font-family: 'Montserrat', sans-serif;
         color: #e41964;
-        font-size: 9vw;
+        font-size: 8.5vw;
     }
 
     .info-tempMin {
         position: absolute;
         right: 10%;
-        bottom: 25%;
+        bottom: 31%;
         font-family: 'Montserrat', sans-serif;
         color: #3d50a6;
-        font-size: 9vw;
+        font-size: 8.5vw;
+    }
+
+    .info-temp-unit {
+        font-size: 5vw;
     }
 
     .info-weather-img {
@@ -208,7 +212,7 @@ export default {
 
     .info-rain {
         position: absolute;
-        bottom: 10%;
+        bottom: 12%;
         left: 10%;
         font-family: 'Montserrat', sans-serif;
         color: #3e1b28;
@@ -217,7 +221,7 @@ export default {
 
     .info-windSpeed {
         position: absolute;
-        bottom: 10%;
+        bottom: 12%;
         right: 37%;
         font-family: 'Montserrat', sans-serif;
         color: #3e1b28;
@@ -226,7 +230,7 @@ export default {
 
     .info-humidity {
         position: absolute;
-        bottom: 10%;
+        bottom: 12%;
         right: 10%;
         font-family: 'Montserrat', sans-serif;
         color: #3e1b28;
@@ -243,7 +247,7 @@ export default {
     .info-mainDiscription {
         position: absolute;
         right: 10%;
-        top: 10.5%;
+        top: 14.5%;
         color: #3e1b28;
         font-size: 3vw;
         font-family: 'M PLUS 1p', sans-serif;

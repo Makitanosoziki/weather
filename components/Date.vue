@@ -1,7 +1,6 @@
 <template>
     <section>
-        <p class="date">{{ MONTH }}<span class="date-slash">/</span>{{ DAY }}</p>
-        <p class="week">{{ WEEK }}</p>
+        <p class="date">{{ MONTH }}<span class="date-slash">/</span>{{ DAY }}<span class="week">{{ WEEK }}</span></p>
     </section>
 </template>
 
@@ -34,8 +33,9 @@ export default {
 <style>
     .date {
         position: absolute;
-        top: 5%;
-        right: 13%;
+        top: 6%;
+        letter-spacing: 0.4vw;
+        right: 9%;
         font-size: 6.5vw;
         font-family: 'Montserrat', sans-serif;
         color: #3e1b28;
@@ -43,9 +43,10 @@ export default {
 
     .week {
         position: absolute;
-        top: 10.5%;
-        right: 5%;
-        font-size: 3.3vw;
+        right: -6.5vw;
+        letter-spacing: 0;
+        bottom: 5%;
+        font-size: 2.8vw;
         font-family: 'Montserrat', sans-serif;
         color: #3e1b28;
     }
