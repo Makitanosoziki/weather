@@ -70,10 +70,10 @@ export default {
 .container {
   background-image: url(/bg.png) ;
   padding-bottom: calc(100%*1200/1800);
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat; 
   position: relative;
-    &::before {
+    /* &::before {
       content: '';
       background: url("../assets/bg_dots.png");
       width: 100vw;
@@ -82,7 +82,7 @@ export default {
       margin-right: calc( ( ( 100% - 100vw ) / 2 ) );
       position: absolute;
       z-index: -10;
-    }
+    } */
 }
 
 </style>

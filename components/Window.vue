@@ -1,7 +1,5 @@
 <template>
-    <section>
         <figure class="sky"><img :src="WINDOW" alt="" class="sky-img"></figure>
-    </section>
 </template>
 <script>
 

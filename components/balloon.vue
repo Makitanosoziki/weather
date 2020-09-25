@@ -1,7 +1,5 @@
 <template>
-    <section class="balloon">
         <figure :class="BALLOON.figure"><span :class="BALLOON.span"><img src="@/assets/baloon_heare.png" alt="" :class="BALLOON.img"></span></figure>
-    </section>
 </template>
 
 <script>

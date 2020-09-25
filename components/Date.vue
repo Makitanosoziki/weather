@@ -1,7 +1,5 @@
 <template>
-    <section>
         <p class="date">{{ MONTH }}<span class="date-slash">/</span>{{ DAY }}<span class="week">{{ WEEK }}</span></p>
-    </section>
 </template>
 
 <script>

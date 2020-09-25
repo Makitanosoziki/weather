@@ -1,7 +1,5 @@
 <template>
-    <section>
         <p class="serihu">{{ SERIHU }}</p>
-    </section>
 </template>
 <script>
 

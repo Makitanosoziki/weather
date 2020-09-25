@@ -1,8 +1,8 @@
 <template>
-    <section>
+    <div>
         <figure class="girl-face"><img :src="GIRL_FACE" alt="" class="girl-face-img"></figure>
         <figure class="girl-body"><img :src="GIRL_BODY" alt="" class="girl-body-img"></figure>
-    </section>
+    </div>
 </template>
 
 <script>

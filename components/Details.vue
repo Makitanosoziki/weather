@@ -1,5 +1,5 @@
 <template>
-    <section class="details" v-if="isVisible">
+    <div class="details" v-if="isVisible">
         <span class="batten" @click="close"></span>
         <ul class="details-list">
             <li class="info-date">{{ INFO_MONTH }}    <span class="info-date-slash">/</span>   {{INFO_DAY}}    <span class="info-date-week">{{ INFO_WEEK }}</span></li>
@@ -11,7 +11,7 @@
             <li class="info-main"><img :src="INFO_MAINIMG" alt="" class="info-main-img"></li>
             <li class="info-mainDiscription">{{ INFO_MAINDISCRIPTION }}</li>
         </ul>
-    </section>
+    </div>
 </template>
 
 <script>
@@ -155,28 +155,31 @@ export default {
         -webkit-border-image: url("../assets/border_img.png") 33% / 5vw round;
         list-style: none;
         position: absolute;
-        right: 10%;
-        top: 10%;
+        top: 50%;
+        right: 50%;
+        transform: translate(50% , -50%);
         display: block;
         width: 80%;
+        max-width: 600px;
         height: 80%;
+        max-height: 400px;
     }
 
     .info-date {
         position: absolute;
         top: 12%;
         left: 10%;
-        font-size: 5vw;
+        font-size: 38px;
         font-family: 'Montserrat', sans-serif;
         color: #3e1b28;
     }
 
     .info-date-slash {
-        font-size: 3vw;
+        font-size: 25px;
     }
 
     .info-date-week {
-        font-size: 3vw;
+        font-size: 25px;
         font-family: 'Montserrat', sans-serif;
         color: #3e1b28;
     }
@@ -187,7 +190,7 @@ export default {
         top: 31%;
         font-family: 'Montserrat', sans-serif;
         color: #e41964;
-        font-size: 8.5vw;
+        font-size: 65px;
     }
 
     .info-tempMin {
@@ -196,11 +199,11 @@ export default {
         bottom: 31%;
         font-family: 'Montserrat', sans-serif;
         color: #3d50a6;
-        font-size: 8.5vw;
+        font-size: 65px;
     }
 
     .info-temp-unit {
-        font-size: 5vw;
+        font-size: 40px;
     }
 
     .info-weather-img {
@@ -216,7 +219,7 @@ export default {
         left: 10%;
         font-family: 'Montserrat', sans-serif;
         color: #3e1b28;
-        font-size: 3.2vw;
+        font-size: 24px;
     }
 
     .info-windSpeed {
@@ -225,7 +228,7 @@ export default {
         right: 37%;
         font-family: 'Montserrat', sans-serif;
         color: #3e1b28;
-        font-size: 3.2vw;
+        font-size: 24px;
     }
 
     .info-humidity {
@@ -234,14 +237,14 @@ export default {
         right: 10%;
         font-family: 'Montserrat', sans-serif;
         color: #3e1b28;
-        font-size: 3.2vw;
+        font-size: 24px;
     }
 
     .info-main-img {
         position: absolute;
-        width: 33%;
-        left: 18%;
-        top: 26%;
+        width: 30%;
+        left: 23%;
+        top: 28%;
     }
 
     .info-mainDiscription {
@@ -249,22 +252,22 @@ export default {
         right: 10%;
         top: 14.5%;
         color: #3e1b28;
-        font-size: 3vw;
+        font-size: 30px;
         font-family: 'M PLUS 1p', sans-serif;
     }
 
     .info-subs-icon {
-        font-size: 2.5vw;
+        font-size: 22px;
     }
 
     .info-subs-title {
         color: #3e1b28;
-        font-size: 1.7vw;
+        font-size: 15px;
         font-family: 'M PLUS 1p', sans-serif;
     }
 
     .info-subs-unit {
         color: #3e1b28;
-        font-size: 1.8vw;
+        font-size: 15px;
     }
 </style>
